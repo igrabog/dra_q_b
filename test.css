@@ -1,0 +1,161 @@
+/*
+Copyright ⓒ 2021 by DevHotteok all rights reserved.
+*/
+
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+body,
+html {
+  font: $font_sizepx '$font_face', 'Nanum Gothic', serif;
+  margin: unset;
+  height: 100%;
+  overflow: hidden;
+  background: $background_color;
+  letter-spacing: -0.08em;
+  line-height: calc($font_sizepx + 5px);
+}
+
+.reverse {
+  text-align: right;
+}
+
+.reverse #log div {
+  margin-left: auto;
+}
+
+#log>div.deleted {
+  visibility: hidden;
+}
+
+#log .emote_wrap {
+  position: relative;
+}
+
+#log .emote_wrap img.emoticon {
+  height: $font_sizepx;
+  vertical-align: middle;
+  margin: -5px 0;
+}
+
+.badge {
+  display: inline-block;
+  margin: 1px 3px 3px 0;
+  vertical-align: middle;
+}
+
+.badge,
+span.message>img {
+  height: 1em;
+}
+
+/* Chat Area */
+#log {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Chat */
+#log div {
+  --fade-in-duration: 0.5s;
+  --fade-out-duration: 1s;
+  position: relative;
+  margin: calc($font_sizepx + 5px) 0;
+  padding: 10px 30px 10px 10px;
+  width: fit-content;
+  background-color: white;
+  background-image: url(https://devhotteok.github.io/twitch-utilities/twip-css/chatbox/dkwl025/img/paw.png);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 2px) calc(100% - 2px);
+  background-size: 20px 20px;
+  border-bottom: 3px solid #bbbbbb;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp var(--fade-in-duration) ease, fadeOut var(--fade-out-duration) ease $message_hide_delays forwards;
+}
+
+/* Nickname Area */
+#log .meta {
+  position: relative;
+  display: inline-block;
+  margin: -25px 10px 0 0;
+  padding: 10px 10px 10px 15px;
+  background-color: var(--color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Nickname */
+.name {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Nickname Colon */
+.colon {
+  visibility: hidden;
+}
+
+/* Message */
+.message {
+  color: #ffffff;
+  --text-color: $text_color;
+  text-shadow:
+    -2px -2px 0 var(--text-color),
+    -2px -1px 0 var(--text-color),
+    -2px 0 0 var(--text-color),
+    -2px 1px 0 var(--text-color),
+    -2px 2px 0 var(--text-color),
+    -1px -2px 0 var(--text-color),
+    -1px 2px 0 var(--text-color),
+    0 -2px 0 var(--text-color),
+    0 2px 0 var(--text-color),
+    1px -2px 0 var(--text-color),
+    1px 2px 0 var(--text-color),
+    2px -2px 0 var(--text-color),
+    2px -1px 0 var(--text-color),
+    2px 0 0 var(--text-color),
+    2px 1px 0 var(--text-color),
+    2px 2px 0 var(--text-color),
+    2px 2px 5px var(--text-color);
+}
+
+/* Tail */
+#log div::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  left: -25px;
+  width: 40px;
+  height: 40px;
+  background: url(https://devhotteok.github.io/twitch-utilities/twip-css/chatbox/dkwl025/img/tail.png) center no-repeat;
+  background-size: contain;
+  transform: scaleX(-1);
+}
+
+/* Ribbon */
+#log div::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
+  background: url(https://devhotteok.github.io/twitch-utilities/twip-css/chatbox/dkwl025/img/ribbon.png) center no-repeat;
+  background-size: contain;
+}
+
+/* Broadcaster */
+#log .broadcaster {
+  border-bottom: 3px solid #ff5577;
+}
+
+/* Moderator */
+#log .moderator {
+  border-bottom: 3px solid #00d10a;
+}
